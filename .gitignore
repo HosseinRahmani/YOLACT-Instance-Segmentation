@@ -1,0 +1,88 @@
+
+
+# BEGIN YOLACT PROJECT RULES
+# Python bytecode and environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+.ipynb_checkpoints/
+
+# macOS and editor files
+.DS_Store
+._*
+__MACOSX/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Full datasets (the modified vendor/yolact/data SOURCE stays tracked)
+/data/
+/datasets/
+
+# Training outputs, downloaded weights, and local caches
+/runs/
+/weights/
+/checkpoints/
+/outputs/
+/results/
+**/weights/
+**/checkpoints/
+**/runs/
+**/cache/
+**/.cache/
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.safetensors
+*.tflite
+*.engine
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.log
+events.out.tfevents.*
+
+# Applied installers, archives, and recovery copies
+/portability_backups/
+/training_batch_check/
+/background_training_fix/
+/mps_backward_fix/
+/mps_native_fix/
+/yolact_portability_patch/
+/yolact_results_tools/
+/github_publish_files/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.bak
+
+# Intentional small documentation assets remain publishable
+!/docs/
+!/docs/images/
+!/docs/images/test_example_*.jpg
+!/docs/results/
+!/docs/results/*.csv
+!/docs/results/*.json
+
+# END YOLACT PROJECT RULES

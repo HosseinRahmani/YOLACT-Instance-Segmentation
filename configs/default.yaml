@@ -1,0 +1,49 @@
+# Starter settings for the YOLACT Package-Seg pipeline.
+# Package-Seg supplies one class: package. Add more classes only when the
+# annotations actually distinguish them.
+
+project:
+  name: package-instance-segmentation
+  seed: 42
+  output_dir: runs/package_seg
+
+model:
+  name: yolact_base
+  pretrained_weights: weights/yolact_base_54_800000.pth
+  image_size: 550
+
+classes:
+  - package
+
+# The downloaded dataset is stored under Yolact/data. The converter writes
+# COCO JSON annotations to data/annotations/.
+dataset:
+  root: data
+  format: coco
+  train_images: data/images/train
+  train_annotations: data/annotations/instances_train_annotated.json
+  val_images: data/images/val
+  val_annotations: data/annotations/instances_val.json
+  test_images: data/images/test
+  test_annotations: data/annotations/instances_test.json
+
+training:
+  epochs: 100
+  batch_size: 8
+  num_workers: 4
+  learning_rate: 0.001
+  validate_every_epochs: 1
+  save_best_metric: mask_map_50_95
+
+augmentation:
+  enabled: true
+  on_the_fly: true
+  horizontal_flip: true
+  vertical_flip: false
+  rotation_degrees: 10
+  brightness_contrast: true
+  random_crop: false
+
+inference:
+  confidence_threshold: 0.30
+  nms_iou_threshold: 0.50

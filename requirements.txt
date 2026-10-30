@@ -1,0 +1,17 @@
+# Core YOLACT dependencies
+# Install torch and torchvision separately using the official PyTorch selector
+# so the versions match your operating system and CUDA setup.
+
+numpy>=1.23,<2.0
+Cython>=0.29.36,<4
+pycocotools>=2.0.7
+opencv-python>=4.8,<5
+Pillow>=9.5
+matplotlib>=3.7,<4
+scipy>=1.10
+
+# Pipeline utilities: config, metrics, logging, and progress output
+PyYAML>=6.0
+scikit-learn>=1.3
+tensorboard>=2.14
+tqdm>=4.66
