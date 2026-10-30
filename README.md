@@ -2,7 +2,7 @@
 
 Fine-tuning YOLACT to detect individual packages and predict a separate mask for each package. The project includes YOLO-polygon-to-COCO conversion, dataset auditing, on-the-fly augmentation, resumable training, and visual comparison with test annotations.
 
-The completed run used Apple Silicon MPS, 550-pixel inputs, and a physical batch size of one. Model computation used MPS with CPU operator fallback disabled; data loading and image rendering use the CPU.
+The code supports both NVIDIA GPUs through CUDA and Apple Silicon GPUs through MPS, selected using --device cuda or --device mps. The reported training run used Apple Silicon MPS with 550-pixel inputs, a physical batch size of one, and CPU operator fallback disabled. Data loading and image rendering use the CPU.
 
 ## Test examples
 
