@@ -92,7 +92,7 @@ Place the pretrained checkpoint at `vendor/yolact/weights/yolact_base_54_800000.
 ```bash
 python scripts/convert_yolo_seg_to_coco.py
 python scripts/exclude_unannotated_train.py
-python scripts/check_training_batch.py --device auto
+python scripts/check_training_batch.py --device cuda
 ```
 
 ## Training
@@ -101,7 +101,7 @@ Start a new run in an unused output directory:
 
 ```bash
 caffeinate -i python scripts/fine_tune.py \
-  --device auto --epochs 100 --batch-size 1 \
+  --device cuda --epochs 100 --batch-size 1 \
   --lr 0.0001 --log-every 100
 ```
 
@@ -111,7 +111,7 @@ The completed run encountered numerical instability during epoch 20. It resumed 
 
 ```bash
 caffeinate -i python scripts/fine_tune.py \
-  --device auto --epochs 100 --batch-size 1 \
+  --device cuda --epochs 100 --batch-size 1 \
   --lr 0.0001 --log-every 100 --resume \
   --resume-lr 0.00001 --reset-momentum --max-grad-norm 10
 ```
@@ -125,7 +125,7 @@ Outputs are written to `runs/yolact_package_seg/`, including `last_training.pt`,
 With the local final checkpoint available:
 
 ```bash
-python scripts/inspect_results.py --device auto --count 20 --threshold 0.30
+python scripts/inspect_results.py --device cuda --count 20 --threshold 0.30
 ```
 
 Use `--count 0` for the entire test split. Side-by-side images are saved to `runs/yolact_package_seg/test_visualizations/`.
